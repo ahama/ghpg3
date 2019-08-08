@@ -1,0 +1,27 @@
+<html>
+<head></head>
+<body>
+
+{{ content }}
+
+<hr>
+
+<br>
+{% assign dt_now = 'now' | date: "%Y%j" %}
+{% assign vl_dt = dt_now | minus: 3 %}
+{% for post in site.posts reversed %}
+
+    {% assign dt_date = post.date | date: "%Y%j" %}
+    {% assign ar_dt = dt_date | plus: 0 %}
+
+    {% if ar_dt >= vl_dt %}
+        post.title<br>
+
+    {% endif %}
+
+{% endfor %}
+<br>
+
+</body>
+</html>
+
